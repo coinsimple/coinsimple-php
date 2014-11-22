@@ -1,6 +1,6 @@
 <?php
 
-namespace Coinsimple;
+namespace CoinSimple;
 
 class Business {
     const NEW_INVOICE_URL = "https://app.coinsimple.com/api/v1/invoice";

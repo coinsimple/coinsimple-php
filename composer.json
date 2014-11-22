@@ -1,0 +1,11 @@
+{
+    "name": "coinsimple/coinsimple",
+    "description": "CoinSimple API wrapper",
+    "keywords": ["bitcoin", "coinsimple"],
+    "homepage": "https://coinsimple.com",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-0": {"CoinSimple": "src/"}
+    }
+}

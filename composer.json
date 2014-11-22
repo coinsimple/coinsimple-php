@@ -6,6 +6,6 @@
     "type": "library",
     "license": "MIT",
     "autoload": {
-        "psr-4": {"\\Coinsimple\\": "src"}
+        "psr-4": {"\\Coinsimple\\": "src/"}
     }
 }

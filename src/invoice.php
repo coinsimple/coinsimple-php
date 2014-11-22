@@ -1,6 +1,6 @@
 <?php
 
-namespace CoinSimple;
+namespace Coinsimple;
 
 class Invoice {
     protected $options;

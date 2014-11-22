@@ -1,8 +1,6 @@
 <?php
 
-namespace CoinSimple;
-
-require_once(dirname(__FILE__) . '/invoice.php');
+namespace Coinsimple;
 
 class Business {
     const NEW_INVOICE_URL = "https://app.coinsimple.com/api/v1/invoice";

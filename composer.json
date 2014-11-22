@@ -6,6 +6,8 @@
     "type": "library",
     "license": "MIT",
     "autoload": {
-        "psr-4": {"\\Coinsimple\\": "src/"}
+        "files": [
+            "src/coinsimple.php"
+        ]
     }
 }

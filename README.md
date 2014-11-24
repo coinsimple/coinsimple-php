@@ -58,7 +58,7 @@ But the only fields that are really required are `name`, `email`, `items`, `proc
 This library also contains the following functions if you preffer to setup the invoice incrementally:
 
 - `.setName($name)`
-- `.SetEmail($email)`
+- `.setEmail($email)`
 - `.addItem($item)`
 - `.setProcessor($processor)`
 - `.setRate($rate)`

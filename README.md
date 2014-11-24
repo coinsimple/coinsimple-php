@@ -57,20 +57,20 @@ But the only fields that are really required are `name`, `email`, `items`, `proc
 
 This library also contains the following functions if you preffer to setup the invoice incrementally:
 
-- `.setName($name)`
-- `.setEmail($email)`
-- `.addItem($item)`
-- `.setProcessor($processor)`
-- `.setRate($rate)`
-- `.setCurrency($currency)`
-- `.setNotes($notes)`
-- `.setPercent($percent)` (alias: `.setDiscount($percent)`)
-- `.setCustom($data)`
-- `.setCallbackUrl($url)`
-- `.setRedirectUrl($url)`
-- `.setRecurringTimes($times)` (alias: `stopAfter($times)`)
-- `.recurByDays($num_days)`
-- `.recurByDate($day_of_month)`
+- `->setName($name)`
+- `->setEmail($email)`
+- `->addItem($item)`
+- `->setProcessor($processor)`
+- `->setRate($rate)`
+- `->setCurrency($currency)`
+- `->setNotes($notes)`
+- `->setPercent($percent)` (alias: `->setDiscount($percent)`)
+- `->setCustom($data)`
+- `->setCallbackUrl($url)`
+- `->setRedirectUrl($url)`
+- `->setRecurringTimes($times)` (alias: `->stopAfter($times)`)
+- `->recurByDays($num_days)`
+- `->recurByDate($day_of_month)`
 
 These methods are all chainable and you can mix both options of using functions and setting intial parameters in the constructor. For example you can create an invoice like so:
 
@@ -86,7 +86,7 @@ $invoice.addItem(array(
     "description" => "Nice Shirt",
     "price" => 15.8,
     "quantity" => 2,
-)).setCurrency("usd").recurByDays(4).stopAfter(2);
+))->setCurrency("usd")->recurByDays(4)->stopAfter(2);
 ```
 
 This code will create an invoice with one item which will recur 2 times once every four days.
@@ -94,5 +94,5 @@ This code will create an invoice with one item which will recur 2 times once eve
 To then send the invoice using a business you created you can use the `sendInvoice` method:
 
 ```php
-$business.sendInvoice($invoice);
+$business->sendInvoice($invoice);
 ```

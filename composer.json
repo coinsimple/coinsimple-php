@@ -9,5 +9,10 @@
         "files": [
             "src/coinsimple.php"
         ]
+    },
+    "require-dev": {
+        "codeception/codeception": "*",
+        "codeception/specify": "*",
+        "codeception/verify": "*"
     }
 }

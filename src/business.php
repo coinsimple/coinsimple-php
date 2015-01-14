@@ -2,29 +2,38 @@
 
 namespace CoinSimple;
 
-class Business {
+class Business
+{
     const NEW_INVOICE_URL = "https://app.coinsimple.com/api/v1/invoice";
 
-    protected $business_id;
-    protected $api_key;
+    protected $businessId;
+    protected $apiKey;
 
-    public function __construct($b_id, $api_key) {
-        $this->business_id = $b_id;
-        $this->api_key = $api_key;
+    public function __construct($bId, $apiKey)
+    {
+        $this->businessId = $bId;
+        $this->apiKey = $apiKey;
     }
 
-    public function sendInvoice($invoice) {
+    public function sendInvoice($invoice)
+    {
         $timestamp = time();
 
         $options = $invoice->data();
         $options['timestamp'] = $timestamp;
-        $options['hash'] = hash_hmac("sha256", $this->api_key, $timestamp);
-        $options['business_id'] = $this->business_id;
+        $options['hash'] = hash_hmac("sha256", $this->apiKey, $timestamp);
+        $options['business_id'] = $this->businessId;
 
         return $this->httpSendInvoice($options);
     }
 
-    protected function httpSendInvoice($options) {
+    public function validateHash($hash, $timestamp)
+    {
+        return $hash == hash_hmac("sha256", $this->apiKey, $timestamp);
+    }
+
+    protected function httpSendInvoice($options)
+    {
         $curl = curl_init(self::NEW_INVOICE_URL);
         $data = json_encode($options);
 
@@ -45,8 +54,8 @@ class Business {
 
         if ($response == false || curl_getinfo($curl, CURLINFO_HTTP_CODE) >= 400) {
             return array("status" => "error", "error" => "Error creating Invoice");
-        } else {
-            return json_decode($response);
         }
+
+        return json_decode($response);
     }
 }
